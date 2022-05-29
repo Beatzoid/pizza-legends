@@ -14,7 +14,7 @@ export default class Overworld {
         background.onload = () => {
             this.ctx.drawImage(background, 0, 0);
         };
-        background.src = "/images/maps/DemoLower.png";
+        background.src = "/assets/images/maps/DemoLower.png";
 
         const shadow = new Image();
         shadow.onload = () => {
@@ -30,7 +30,7 @@ export default class Overworld {
                 32
             );
         };
-        shadow.src = "/images/characters/shadow.png";
+        shadow.src = "/assets/images/characters/shadow.png";
 
         const hero = new Image();
         const x = 5;
@@ -49,6 +49,6 @@ export default class Overworld {
                 32
             );
         };
-        hero.src = "/images/characters/people/hero.png";
+        hero.src = "/assets/images/characters/people/hero.png";
     }
 }
