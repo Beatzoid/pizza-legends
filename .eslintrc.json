@@ -23,6 +23,8 @@
         "lines-between-class-members": 0,
         "import/no-unresolved": 0,
         "import/extensions": 0,
-        "comma-dangle": 0
+        "comma-dangle": 0,
+        "no-console": 0,
+        "@typescript-eslint/no-non-null-assertion": 0
     }
 }
