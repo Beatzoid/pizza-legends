@@ -1,11 +1,15 @@
-class Overworld {
-    constructor(config) {
+export default class Overworld {
+    private element: Element;
+    private canvas: HTMLCanvasElement;
+    private ctx: CanvasRenderingContext2D;
+
+    public constructor(config: { element: Element }) {
         this.element = config.element;
-        this.canvas = this.element.querySelector(".game-canvas");
-        this.ctx = this.canvas.getContext("2d");
+        this.canvas = this.element.querySelector(".game-canvas")!;
+        this.ctx = this.canvas.getContext("2d")!;
     }
 
-    init() {
+    public init() {
         const background = new Image();
         background.onload = () => {
             this.ctx.drawImage(background, 0, 0);
