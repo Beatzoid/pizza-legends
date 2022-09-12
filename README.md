@@ -2,6 +2,10 @@
 
 A pokemon-style pizza-themed RPG written in Typescript
 
+# Demo
+
+[Here](https://pizza-legends.up.railway.app/)
+
 # Usage
 
 ```bash
