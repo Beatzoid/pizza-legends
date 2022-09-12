@@ -1,0 +1,41 @@
+name: Lint
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Install Dependencies
+              run: yarn install
+
+            - name: Lint
+              run: yarn lint
+
+            - name: Save ESLint JSON Report
+              run: yarn eslint --output-file eslint_report.json --format json src
+              continue-on-error: true
+
+            - name: Annotate Code Linting Results
+              uses: ataylorme/eslint-annotate-action@v2
+              with:
+                  repo-token: "${{ secrets.GITHUB_TOKEN }}"
+                  report-json: "eslint_report.json"
+
+            - name: Upload ESLint report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: eslint_report.json
+                  path: eslint_report.json
